@@ -63,7 +63,7 @@ class GameUpdateView(UpdateView):
                 temp_game.game_type.add(tag)
 
         # 이미지 필드가 비어있으면 삭제
-        if not self.request.FILES.get('image'):
+        if not self.request.FILES.get('image') and not temp_game.image:
             temp_game.image = None
 
         return super().form_valid(form)
