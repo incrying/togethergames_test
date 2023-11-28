@@ -1,3 +1,5 @@
+import os
+
 from django.db.models import Q, Count
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -5,11 +7,15 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.conf import settings
+from django.core.files.storage import default_storage
 
+import game
 from game.forms import GameCreationForm
 from game.models import Game, Place, Situation, GameType, Like
 
 from gameplaylist.models import GamePlaylist
+
 
 
 # 게임 등록
@@ -48,8 +54,19 @@ class GameUpdateView(UpdateView):
 
     def form_valid(self, form):
         temp_game = form.save(commit=False)
+
+        if 'cancelFile' in self.request.POST:
+            old_image = temp_game.image
+            if old_image:
+                file_path = old_image.path
+                if default_storage.exists(file_path):
+                    default_storage.delete(file_path)
+                temp_game.image = None
+
+
         temp_game.place = Place.objects.get(name=self.request.POST['place_str'])
         temp_game.situation = Situation.objects.get(name=self.request.POST['situation_str'])
+
         temp_game.save()
         temp_game.game_type.clear()
         game_type = self.request.POST.get('game_type_str')
@@ -62,11 +79,9 @@ class GameUpdateView(UpdateView):
                 tag = GameType.objects.get(name=t)
                 temp_game.game_type.add(tag)
 
-        # 이미지 필드가 비어있으면 삭제
-        if not self.request.FILES.get('image'):
-            temp_game.image = None
 
         return super().form_valid(form)
+
 
     def get_success_url(self):
         return reverse('game:detail', kwargs={'pk': self.object.pk})
