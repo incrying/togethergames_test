@@ -10,5 +10,10 @@ class GameCreationForm(forms.ModelForm):
                   'preparation', 'explanation', 'tip', 'image']
 
         widgets = {
+            'title': forms.TextInput(attrs={'placeholder': '게임명을 입력하세요'}),
             'image': ClearableFileInput,
         }
+
+    def __init__(self, *args, **kwargs):
+        super(GameCreationForm, self).__init__(*args, **kwargs)
+        self.fields['title'].required = True  # 필수 필드 설정

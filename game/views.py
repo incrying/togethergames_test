@@ -1,6 +1,7 @@
 from django.db.models import Q, Count
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
@@ -19,7 +20,22 @@ class GameCreateView(CreateView):
     form_class = GameCreationForm
     template_name = 'game/create.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # 오류가 발생했을 때, 이전에 입력한 값을 폼에 전달하여 렌더링
+        if self.request.method == 'POST':
+            context['form'] = self.form_class(self.request.POST)
+        return context
+
     def form_valid(self, form):
+        #이미지 용량 유효성 검사
+        max_size = 10 * 1024 * 1024
+        image = form.cleaned_data.get('image')
+        if image and image.size > max_size:
+            form.add_error('image', f'이미지 크기는 {max_size / 1024 / 1024}MB 이하여야 합니다.')
+            return self.form_invalid(form)
+
+
         temp_game = form.save(commit=False)
         temp_game.author = self.request.user
         temp_game.place = Place.objects.get(name=self.request.POST['place_str'])
@@ -34,6 +50,11 @@ class GameCreateView(CreateView):
                     continue
                 tag = GameType.objects.get(name=t)
                 temp_game.game_type.add(tag)
+
+        if not form.is_valid():
+            messages.error(self.request, '필수 필드를 모두 작성해주세요.')
+            return self.form_invalid(form)
+
         return super().form_valid(form)
 
     def get_success_url(self):
