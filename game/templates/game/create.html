@@ -109,6 +109,21 @@
       </a>
     {% endif %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var fileInput = document.getElementById("file");
+    var cancelFileButton = document.getElementById("cancelFile");
+
+    // 첨부 취소 버튼 클릭 시 이미지 필드를 비움
+    cancelFileButton.addEventListener('click', function() {
+      fileInput.value = "";
+      var uploadName = document.querySelector(".upload-name");
+      uploadName.value = "첨부파일";
+    });
+
+  });
+</script>
+
 {% endblock %}
 
 

@@ -61,6 +61,11 @@ class GameUpdateView(UpdateView):
                     continue
                 tag = GameType.objects.get(name=t)
                 temp_game.game_type.add(tag)
+
+        # 이미지 필드가 비어있으면 삭제
+        if not self.request.FILES.get('image'):
+            temp_game.image = None
+
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -69,9 +74,10 @@ class GameUpdateView(UpdateView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(GameUpdateView, self).get_context_data()
         game = Game.objects.get(pk=self.kwargs['pk'])
+        game_types = game.game_type.all()
         context['place'] = game.place.name
         context['situation'] = game.situation.name
-        context['game_type'] = game.game_type.all()[0].name
+        context['game_type'] = game_types[0].name if game_types else '게임 타입이 없습니다.'
         return context
 
 # # 게임 삭제
