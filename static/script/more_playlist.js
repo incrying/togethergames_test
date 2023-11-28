@@ -10,8 +10,16 @@ function deletePlaylist() {
   }
 }
 
-function collectPlaylist(collected) {
-    location.href = `collect/`;
+function collectPlaylist(login, users) {
+    if(users){
+        alert("자신이 만든 플레이리스트는 제거할 수 없습니다.");
+    }
+    else if(login){
+        location.href = `collect/`;
+    }
+    else{
+        alert("로그인을 해주세요");
+    }
 }
 
 function deleteElement(pk) {

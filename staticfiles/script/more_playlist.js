@@ -10,8 +10,13 @@ function deletePlaylist() {
   }
 }
 
-function collectPlaylist(collected) {
-    location.href = `collect/`;
+function collectPlaylist(login) {
+    if(login == 'true'){
+        location.href = `collect/`;
+    }
+    else{
+        alert("로그인을 해주세요");
+    }
 }
 
 function deleteElement(pk) {

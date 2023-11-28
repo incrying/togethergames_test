@@ -1,7 +1,7 @@
 from django import forms
 
 from gameplaylist.models import GamePlaylist
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, FileInput
 
 
 class GamePlaylistCreationForm(forms.ModelForm):
@@ -13,5 +13,9 @@ class GamePlaylistCreationForm(forms.ModelForm):
                 'id': "playlistName",
                 'placeholder': '제목을 입력하세요'
             }),
+            'image': FileInput(attrs={
+                'id': "file",
+                'accept': 'image/*'  # 이미지 파일만 허용
+            })
         }
 

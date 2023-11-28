@@ -59,24 +59,26 @@ class GamePlaylistListView(ListView, FormMixin):
         return self.request.user.collected_gamelist.all()
 
 ## 게임플리 상세
-class GamePlaylistDetailView(DetailView, FormMixin):
+class GamePlaylistDetailView(DetailView):
     model = GamePlaylist
     context_object_name = 'target_gameplaylist'
     template_name = 'gameplaylist/detail.html'
 
-    form_class = GamePlaylistCreationForm
 
     def get_context_data(self, **kwargs):
         context = super(GamePlaylistDetailView, self).get_context_data()
         context['games'] = self.object.games.all()
-        context['collected'] = True if self.request.user in self.object.collectors.all() else False
+        if self.request.user.is_authenticated:
+            context['collected'] = True if self.request.user in self.object.collectors.all() else False
+            context['login'] = True
+            if self.request.user == self.object.author:
+                context['users'] = True
+        else:
+            context['collected'] = False
+            context['login'] = False
+            context['users'] = False
+        context['form'] = GamePlaylistCreationForm(instance=self.object)
         return context
-
-    def form_valid(self, form):
-        temp_gameplaylist = form.save(commit=False)
-        temp_gameplaylist.author = self.request.user
-        form.save(commit=True)
-        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse('gameplaylist:detail', kwargs={'pk':self.object.pk})
@@ -90,6 +92,10 @@ class GamePlaylistUpdateView(UpdateView):
     def form_valid(self, form):
         temp_gameplaylist = form.save(commit=False)
         temp_gameplaylist.author = self.request.user
+
+        if not self.request.FILES.get('image'):
+            temp_gameplaylist.image = None
+
         form.save(commit=True)
         return super().form_valid(form)
 

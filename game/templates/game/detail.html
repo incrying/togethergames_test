@@ -62,11 +62,11 @@
         <div class="sec2-wrapper">
           <div class="about-game">
             <h3>게임 준비</h3>
-            <p>{{target_game.preparation}}</p>
+            <p><pre>{{target_game.preparation}}</pre></p>
             <h3>게임 방법</h3>
-            <p>{{target_game.explanation}}</p>
+            <p><pre>{{target_game.explanation}}</pre></p>
             <h3>진행 팁</h3>
-            <p>{{target_game.tip}}</p>
+            <p><pre>{{target_game.tip}}</pre></p>
           </div>
           {% if user.is_authenticated and user == target_game.author %}
           <div class="post-buttons">

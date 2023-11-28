@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/more_playlist.css' %}" />
-<script src="{% static 'script/more_playlist.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/more_playlist.css' %}?after" />
+<script src="{% static 'script/more_playlist.js' %}?after"></script>
 {% endblock %}
 
 {% block content %}
@@ -40,11 +40,9 @@
             {% endif %}
         </div>
 
-        {% if user.is_authenticated and user != target_gameplaylist.author %}
-            <button id="addButton" onclick="collectPlaylist( {{ collected|yesno:'true,false' }} )">
-                {{ collected|yesno:'추가됨! (재클릭 시 취소),내 Playlist에 추가하기' }}
-            </button>
-        {% endif %}
+        <button id="addButton" onclick="collectPlaylist({{login| yesno:'true,false'}}, {{users| yesno:'true,false'}})">
+            {{ collected|yesno:'추가됨! (재클릭 시 취소),내 Playlist에 추가하기' }}
+        </button>
 
     </div>
 
@@ -72,15 +70,30 @@
               {{form.title}}
             <span class="span-text">썸네일 이미지</span>
               <div class="filebox">
-                <input class="upload-name" value="첨부파일" placeholder="첨부파일"/>
+                <input class="upload-name" value="{{ form.image.value | default_if_none:'첨부파일' }}" placeholder="첨부파일"/>
                 <button type="button" id="cancelFile">첨부 취소</button>
                 <label for="file">파일 찾기</label>
-                <input type="file" id="file" name="image" />
+                {{form.image}}
             </div>
             <button type="submit">수정 완료</button>
           </form>
         </div>
       </div>
     </div>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var fileInput = document.getElementById("file");
+    var cancelFileButton = document.getElementById("cancelFile");
+
+    // 첨부 취소 버튼 클릭 시 이미지 필드를 비움
+    cancelFileButton.addEventListener('click', function() {
+      fileInput.value = "";
+      var uploadName = document.querySelector(".upload-name");
+      uploadName.value = "첨부파일";
+    });
+
+  });
+</script>
 
 {% endblock %}

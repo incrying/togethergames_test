@@ -87,7 +87,7 @@
               <div class="filebox">
                 <input class="upload-name" value="{{ form.image.value|default_if_none:'' }}" placeholder="첨부파일"/>
                 <label for="file">파일찾기</label>
-                <input type="file" id="file" name="image"/>
+                <input type="file" id="file" name="image" accept="image/*"/>
                 <button type="button" id="cancelFile">첨부 취소</button>
               </div>
               <input type="hidden" id="situation" name="situation_str">
