@@ -210,3 +210,8 @@ label span {
 .field:last-of-type{
   margin-bottom: 15px;
 }
+
+.bold a {
+  color: black;
+  font-weight: 900;
+}

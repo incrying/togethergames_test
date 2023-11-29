@@ -3,6 +3,32 @@
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/search.css' %}?after" />
 {% endblock %}
+    {% block nav %}
+<nav>
+    <ul class="nav-list">
+        <li><a href="{% url 'page:main' %}">인기 게임</a></li>
+        <li class="bold"><a href="{% url 'game:list' %}">게임 목록</a></li>
+        <li><a href="{% url 'game:create' %}" id="game_create" >게임 등록</a></li>
+        {# <li><a href="{% url game:mypage' %}">마이페이지</a></li> #}
+        </ul>
+
+        <ul class="nav-list">
+            {% if not user.is_authenticated %}
+            <li>
+              <a href="{% url 'account:signup' %} ">회원 가입</a>
+            </li>
+            <li>
+                <a href="{% url 'account:login' %}">로그인</a>
+            </li>
+            {% else %}
+            <li><a href="{% url 'page:mypage' pk=user.pk%}"><span>마이페이지</span></a></li>
+            <li>
+                <a href="{% url 'account:logout' %}"><span>로그아웃</span></a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endblock %}
 {% block content %}
     <h2>어떤 게임을 찾고 계시나요?</h2>
     <div class="container">

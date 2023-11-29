@@ -180,3 +180,7 @@ nav {
   color: inherit;
 }
 
+.bold a {
+  color: black;
+  font-weight: 900;
+}
