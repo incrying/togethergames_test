@@ -34,9 +34,9 @@ class Game(models.Model):
     place = models.ForeignKey(Place, null=False, on_delete=models.CASCADE)
     game_type = models.ManyToManyField(GameType)
 
-    preparation = models.TextField(null=False)
-    explanation = models.TextField(null=False)
-    tip = models.TextField()
+    preparation = models.TextField(null=True)
+    explanation = models.TextField(null=False, blank=True)
+    tip = models.TextField(null=True, blank=True)
 
     image = models.ImageField(upload_to="images/games/", null=True, blank=True)
     likes = models.ManyToManyField('Like', related_name='game', null=True, blank=True)

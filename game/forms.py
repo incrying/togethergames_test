@@ -16,4 +16,11 @@ class GameCreationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(GameCreationForm, self).__init__(*args, **kwargs)
-        self.fields['title'].required = True  # 필수 필드 설정
+
+        self.fields['min_num_ppl'].initial = 0
+        self.fields['max_num_ppl'].initial = 0
+        self.fields['min_time'].initial = 0
+        self.fields['max_time'].initial = 0
+        self.fields['preparation'].initial = ''
+        self.fields['explanation'].initial = ''
+        self.fields['tip'].initial = ''

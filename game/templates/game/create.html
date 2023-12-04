@@ -48,12 +48,12 @@
                   <div class="select-options" id="group1">
                     <div class="option-wrapper">
                       <span>최소</span>
-                      <input type="text"  name="min_num_ppl" required/>
+                      <input type="text"  name="min_num_ppl" value="{{ form.min_num_ppl.value|default:'' }}" required/>
                       <span>명</span>
                     </div>
                     <div class="option-wrapper">
                       <span>최대</span>
-                      <input type="text" name="max_num_ppl"/>
+                      <input type="text" name="max_num_ppl" value="{{ form.max_num_ppl.value|default:'' }}"/>
                       <span>명</span>
                     </div>
                   </div>
@@ -61,12 +61,12 @@
                   <div class="select-options" id="group2">
                     <div class="option-wrapper">
                       <span>최소</span>
-                      <input type="text" name="min_time" />
+                      <input type="text" name="min_time" value="{{ form.min_time.value|default:'' }}"/>
                       <span>분</span>
                     </div>
                     <div class="option-wrapper">
                       <span>최대</span>
-                      <input type="text"  name="max_time" />
+                      <input type="text"  name="max_time" value="{{ form.max_time.value|default:'' }}"/>
                       <span>분</span>
                     </div>
                   </div>
@@ -112,13 +112,13 @@
                 {% endif %}
 
               <span>게임명</span>
-              <input type="text" name="title" />
+              <input type="text" name="title" value="{{ form.title.value|default:'' }}"/>
               <span>진행준비</span>
-              <textarea name="preparation" id="" cols="30" rows="2"></textarea>
+              <textarea name="preparation" id="" cols="30" rows="2">{{ form.preparation.value|default:'' }}</textarea>
               <span>게임 방법</span>
-              <textarea name="explanation" id="" cols="30" rows="3"></textarea>
+              <textarea name="explanation" id="" cols="30" rows="3" placeholder="필수 입력입니다.">{{ form.explanation.value|default:'' }}</textarea>
               <span>진행 팁 / 주의사항</span>
-              <textarea name="tip" id="" cols="30" rows="5"></textarea>
+              <textarea name="tip" id="" cols="30" rows="5">{{ form.tip.value|default:'' }}</textarea>
               <span>썸네일 이미지</span>
               <div class="filebox">
                 <input class="upload-name" value="첨부파일" placeholder="첨부파일"/>

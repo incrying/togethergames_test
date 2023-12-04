@@ -42,6 +42,10 @@ class GameCreateView(CreateView):
                 temp_game.game_type.add(tag)
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        # 폼 유효성 검사 실패 시 폼을 이전 입력값과 함께 다시 렌더링
+        return self.render_to_response(self.get_context_data(form=form))
+
     def get_success_url(self):
         return reverse('game:detail', kwargs={'pk':self.object.pk})
 
