@@ -67,3 +67,22 @@ def myPage(request, pk):
         'collected_list': collected_list,
         'collect_count':collect_count
     })
+
+
+#내가 등록한 게임
+def MyGameView(request,pk):
+    user = User.objects.get(pk=pk)
+    mygame_list = Game.objects.filter(author=user)
+    mygame_count = mygame_list.count
+    mygame_list1=mygame_list[:4]
+    mygame_list2 = mygame_list[4:8]
+    mygame_list3 = mygame_list[8:12]
+
+    return render(request, 'single_pages/mygame.html', {
+        'target_user': user,
+        'mygame_list': mygame_list,
+        'mygame_count': mygame_count,
+        'mygame_list1': mygame_list1,
+        'mygame_list2': mygame_list2,
+        'mygame_list3': mygame_list3,
+    })

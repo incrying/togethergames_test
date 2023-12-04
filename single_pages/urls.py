@@ -1,6 +1,6 @@
 from django.urls import path
 
-from single_pages.views import mainPage, LikedRankingPage, SituationRankingPage, myPage
+from single_pages.views import mainPage, LikedRankingPage, SituationRankingPage, myPage, MyGameView
 
 app_name='page'
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path('ranking/liked/', LikedRankingPage, name='likedRanking'),
     path('ranking/situation/<int:pk>', SituationRankingPage, name='situationRanking'),
     path('mypage/<int:pk>/', myPage, name='mypage'),
+    path('mypage/mygame/<int:pk>/', MyGameView, name='mygame'),
 
 ]

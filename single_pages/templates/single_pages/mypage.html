@@ -35,7 +35,7 @@
   <div class="mypage-info">
     <h2>{{ target_user.nickname }}님, 안녕하세요!</h2>
     <a href="#">내 정보 수정 ></a>
-    <a href="#">내가 쓴 글 목록 ></a>
+    <a href="{% url 'page:mygame' pk=user.pk %}">내가 쓴 글 목록 ></a>
   </div>
     <div class="my-game" >
       <div class="like-game">
