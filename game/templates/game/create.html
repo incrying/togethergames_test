@@ -101,15 +101,6 @@
             <h2>게임 소개</h2>
             <form id="gameForm" action="{% url 'game:create' %}" method="post" enctype="multipart/form-data">
               {% csrf_token %}
-               {% if form.errors %}
-                    <ul class="errorlist">
-                        {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                                <li>{{ field }}: {{ error }}</li>
-                            {% endfor %}
-                        {% endfor %}
-                    </ul>
-                {% endif %}
 
               <span>게임명</span>
               <input type="text" name="title" value="{{ form.title.value|default:'' }}"/>
@@ -156,6 +147,11 @@
       var uploadName = document.querySelector(".upload-name");
       uploadName.value = "첨부파일";
     });
+
+    {% if form.errors %}
+      // 필수 필드를 다 채우지 않았을 경우
+          alert("폼을 다 채워주세요!");
+      {% endif %}
 
   });
 </script>
