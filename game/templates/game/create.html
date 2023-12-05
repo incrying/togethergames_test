@@ -151,15 +151,24 @@
 
     //폼 유효성 검사
 
-    {% if form.errors %}
-    {% for field, errors in form.errors.items %}
-        {% if 'number' in errors.0 %}
-            alert("숫자를 입력해주세요!");
-        {% else %}
+{% if form.errors %}
+    {% with showAlert=True %}
+        {% for field, errors in form.errors.items %}
+            {% if 'number' in errors.0 %}
+                {% if showAlert %}
+                    alert("숫자를 입력해주세요!");
+                    {% with showAlert=False %}
+                    {% endwith %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if showAlert %}
             alert("폼을 다 채워주세요!");
         {% endif %}
-    {% endfor %}
+    {% endwith %}
 {% endif %}
+
+
 
 
   });
