@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
@@ -255,4 +255,92 @@ h2 {
 
 .heart span {
   color: red;
+}
+
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+  .search {
+    width: 60%;
+  }
+
+  .container {
+    flex-direction: column;
+}
+
+  .sec1{
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .option {
+    width: 23%;
+    white-space: nowrap;
+  }
+
+  .select-name {
+    white-space: nowrap;
+    padding: 0 3% 2% 5%;
+  }
+
+  .sec2 {
+    width:90%;
+  }
+
+  .sec2 ul li {
+    padding-bottom: 3px;
+  }
+
+  .sec2 ul li img {
+    width: 24vw;
+    height: 13.5vw;
+    object-fit: cover;
+}
+
+  .list-title span {
+    font-size: 4vw;
+    overflow: hidden;
+    width: 140px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+  .game-info span {
+    font-size: 2.3vw;
+    white-space: nowrap;
+  }
+  .game-info li {
+    border: 1.4px solid grey;
+    width: 10.5vw;
+    height: 10vw !important;
+  }
+
+  .game-info li p {
+    font-size: 2vw;
+}
+  .heart span{
+    font-size:3.5vw;
+    padding: 0 5px 0 5px;
+    margin-top: -5px;
+  }
+
+  .sec2 ul li div img {
+    width: 15px !important;
+    height: 13px;
+    object-fit: contain;
+}
+
 }

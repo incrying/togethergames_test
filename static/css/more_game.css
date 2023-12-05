@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
@@ -313,3 +313,72 @@ nav {
 }
 
 pre {white-space: normal;}
+
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+
+  .search {
+    width: 60%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sec1 {
+    width: 90%;
+  }
+
+  .sec1-wrapper {
+    align-items: center;
+  }
+
+  .sec2{
+    width: 90%;
+  }
+  .sec1-wrapper img {
+    height: 32vw;
+    width:70%;
+}
+  .game-info span {
+    font-size: 3.5vw;
+    white-space: nowrap;
+  }
+  .game-info li p {
+    font-size: 2.5vw;
+    white-space: nowrap;
+}
+  .game-info li {
+
+  }
+
+  .game-info li {
+    width: 15vw;
+    height: 13vw;
+  }
+
+  .buttons button {
+    width: 25%;
+    white-space: nowrap;
+  }
+  .buttons img {
+    width:30%;
+  }
+
+
+}

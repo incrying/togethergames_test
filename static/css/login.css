@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
@@ -129,7 +129,7 @@ nav {
   border-radius: 10px;
   padding: 13px 15px;
   margin-top: 5px;
-  
+
   }
 
 .login input:focus{
@@ -183,4 +183,52 @@ nav {
 .bold a {
   color: black;
   font-weight: 900;
+}
+
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+
+  .search {
+    width: 60%;
+  }
+
+  .img_ad{
+    display:none;
+  }
+  .login {
+    width: 100%;
+    margin: 10px auto;
+
+  }
+
+  .login input[type="email"],
+  .login input[type="password"],
+  .login input[type=submit]{
+  width: 50%; /* 전체 너비로 설정 */
+    height: 10px;
+    margin: 5px 0;
+}
+  .login input[type=submit]{
+     height: 15px;
+  }
+  .info_search {
+    width: 50%;
+    margin: 0 auto;
+  }
+
 }

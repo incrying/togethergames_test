@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media all and (min-width:769px)  {
   html {
     width: 80%;
     margin: 0 auto;
@@ -263,4 +263,61 @@ button:focus {
   padding: 0;
   overflow: hidden;
   border: 0;
+}
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+
+  .search {
+    width: 60%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sec1 {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .sec2 {
+    width: 85%;
+    margin: 10px auto;
+  }
+  .sec2 form {
+    width: 100%;
+  }
+
+  h2{
+    width:30%;
+  }
+
+  .background {
+    width: 95%;
+    margin: 15px auto;
+  }
+
+  .select-buttons input {
+    width: 25%;
+  }
+  .select-name span {
+    white-space: nowrap;
+}
+  .option {
+    white-space: nowrap;
+  }
 }

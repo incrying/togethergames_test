@@ -1,4 +1,4 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
@@ -214,4 +214,47 @@ label span {
 .bold a {
   color: black;
   font-weight: 900;
+}
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+
+  .search {
+    width: 60%;
+  }
+
+  .member_wrapper {
+    width: 70%;
+    margin: auto; /* 가운데 정렬을 위해 추가 */
+    float: none; /* 불필요한 float 속성 제거 */
+    padding-left: 0;
+  }
+  .terms {
+    width:70%;
+    margin: auto; /* 가운데 정렬을 위해 추가 */
+    float: none; /* 불필요한 float 속성 제거 */
+    padding-left: 0;
+  }
+  .terms div {
+    max-height: 100px;
+  }
+
+  form{
+    width: 90%;
+  }
+
 }

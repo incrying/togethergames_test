@@ -1,9 +1,10 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
   }
 }
+
 
 html {
   background-color: rgba(251, 249, 246, 1);
@@ -70,13 +71,10 @@ nav {
 }
 
 .nav-list a {
-  text-decoration: none;
-}
-
-.nav-list a {
   padding: 0 20px 0 20px;
   font-weight: 700;
   color: gray;
+  text-decoration: none;
 }
 
 .bold a {
@@ -169,3 +167,254 @@ a:active {
   width: 40px;
   padding-right: 13px;
 }
+
+
+
+
+@media all and (min-width:769px) {
+  html {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+
+html {
+  background-color: rgba(251, 249, 246, 1);
+}
+
+* {
+  font-family: "IBM Plex Sans KR";
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 5vh 0 5vh;
+}
+
+.nav-wrapper a img {
+  width: 10vh;
+}
+
+.search {
+  width: 35%;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search input {
+  width: calc(
+    100% - 40px
+  ); /* Adjusted width to accommodate the button and image */
+  background-color: rgba(251, 249, 246, 1);
+  border: 2px solid #bbb;
+  border-radius: 20px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.search button {
+  position: absolute;
+  right: 20px; /* Adjusted right position */
+  width: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search img {
+  width: 20px;
+}
+
+nav {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-list {
+  list-style-type: none;
+  padding: 0%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-list a {
+  padding: 0 20px 0 20px;
+  font-weight: 700;
+  color: gray;
+  text-decoration: none;
+}
+
+.bold a {
+  color: black;
+  font-weight: 900;
+}
+
+
+.img_wrapper {
+  padding-left: 5.6vw;
+  padding-right: 5.6vw;
+  width: 69.8vw;
+}
+
+.img_wrapper p {
+  font-size: x-large;
+  margin-bottom: 0%;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.img_wrapper h3 {
+  margin-bottom: 0%;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.img_wrapper h4 {
+  margin-bottom: 0%;
+  margin-top: 0;
+  padding-left: 2px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.img_list {
+  list-style-type: none;
+  display: flex;
+  padding: 0%;
+  margin-top: 7px;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.img_list li {
+  width: 17.45vw;
+}
+
+.img_list img {
+  width: 16.75vw;
+  height: 9.15vw;
+  margin-top: 0%;
+  object-fit: cover;
+}
+
+a {
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.img_list img.like-icon {
+  width: auto;
+  height: 20px;
+  margin-right: 0px;
+  padding-right:5%;
+}
+
+.img_list div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#num {
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: rgba(232, 82, 82, 1);
+}
+
+.img_list li div div {
+  width: 40px;
+  padding-right: 13px;
+}
+
+
+/*모바일 환경*/
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+    white-space: nowrap;
+  }
+
+  .nav-wrapper {
+    padding: 4vh 0 0 4vh;
+  }
+
+  .nav-list a {
+    padding: 0 5px;
+  }
+
+  .search {
+    width: 60%;
+  }
+
+  .img_list {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+
+  .img_list li {
+    width: calc(33.3% - 10px); /* 수직 방향에서 가로 방향으로 변경 */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .img_list li:last-child {
+    display: none;
+  }
+
+  .img_list img {
+    width: 80%; /* 이미지를 부모 요소의 100%로 설정하여 크기를 조절 */
+    height: auto; /* 높이를 자동으로 조절하여 가로 세로 비율 유지 */
+    object-fit: cover;
+    position: relative;
+
+  }
+
+  .img_list div {
+    flex-direction: row;
+
+  }
+
+  .img_list h4 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .img_list li div div {
+    padding-right: 20px;
+  }
+
+  .img_wrapper {
+    width: 100%; /* 전체 너비로 설정 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .img_list img.like-icon {
+    height: 15px;
+    margin-left: 10px;
+  }
+
+}
+
