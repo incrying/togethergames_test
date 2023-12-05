@@ -371,19 +371,15 @@ a:active {
   }
 
   .img_list li {
-    width: calc(33.3% - 10px); /* 수직 방향에서 가로 방향으로 변경 */
+    width: calc(50% - 20px); /* 수직 방향에서 가로 방향으로 변경 */
     display: flex;
     flex-direction: column;
     position: relative;
   }
 
-  .img_list li:last-child {
-    display: none;
-  }
-
   .img_list img {
-    width: 80%; /* 이미지를 부모 요소의 100%로 설정하여 크기를 조절 */
-    height: auto; /* 높이를 자동으로 조절하여 가로 세로 비율 유지 */
+    width: 35vw; /* 이미지를 부모 요소의 100%로 설정하여 크기를 조절 */
+    height: 20vw; /* 높이를 자동으로 조절하여 가로 세로 비율 유지 */
     object-fit: cover;
     position: relative;
 

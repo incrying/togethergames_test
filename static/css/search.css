@@ -297,7 +297,7 @@ h2 {
   }
 
   .sec2 {
-    width:90%;
+    width:100%;
   }
 
   .sec2 ul li {
@@ -342,5 +342,10 @@ h2 {
     height: 13px;
     object-fit: contain;
 }
+  #game-search, #reset {
+    white-space: nowrap;
+  }
 
 }
+
+
