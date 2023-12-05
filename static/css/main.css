@@ -1,9 +1,10 @@
-@media (hover: hover) {
+@media all and (min-width:769px) {
   html {
     width: 80%;
     margin: 0 auto;
   }
 }
+
 
 html {
   background-color: rgba(251, 249, 246, 1);
@@ -70,13 +71,10 @@ nav {
 }
 
 .nav-list a {
-  text-decoration: none;
-}
-
-.nav-list a {
   padding: 0 20px 0 20px;
   font-weight: 700;
   color: gray;
+  text-decoration: none;
 }
 
 .bold a {
@@ -168,4 +166,65 @@ a:active {
 .img_list li div div {
   width: 40px;
   padding-right: 13px;
+}
+
+@media all and (max-width:768px) {
+  html {
+    margin: 0 auto;
+  }
+
+  nav {
+   white-space: nowrap;
+}
+
+.nav-list a {
+  padding: 0 5px;
+}
+
+.search {
+    width: 50%;
+}
+
+.img_list div {
+  flex-direction: column; /* 수직 방향에서 가로 방향으로 변경 */
+}
+.img_list {
+  justify-content: center;
+  flex-wrap:wrap;
+}
+.img_list li {
+   width: calc(50% - 8px); /* 수직 방향에서 가로 방향으로 변경 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.img_list img {
+  width: 80%; /* 이미지를 부모 요소의 100%로 설정하여 크기를 조절 */
+  height: auto; /* 높이를 자동으로 조절하여 가로 세로 비율 유지 */
+  object-fit: cover;
+  position: relative;
+
+}
+
+.img_list div {
+flex-direction: row;
+margin-top: 5px;
+margin-bottom: 20px;
+}
+
+.img_list h4 {
+    padding-right:10px;
+}
+.img_list li div div {
+padding-right:3px;}
+
+.img_wrapper {
+  width: 100%; /* 전체 너비로 설정 */
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 }
