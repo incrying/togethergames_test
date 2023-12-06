@@ -138,7 +138,15 @@
 
           var game_type_button = document.getElementById("group5").querySelector('button[value="{{ game_type }}"]');
           game_type_button.classList.toggle("selected", true);
+
+
+          var resetButton = document.getElementById("cancel");
+        resetButton.addEventListener("click", function () {
+            // 상세 보기 화면으로 이동
+            window.location.href = "/games/detail/{{ target_game.pk }}/";
+        });
       });
+
     </script>
 
     {% else %}
