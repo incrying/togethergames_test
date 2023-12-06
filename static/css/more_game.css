@@ -312,7 +312,7 @@ nav {
   border: none;
 }
 
-pre {white-space: normal;}
+pre {white-space: pre-line;}
 
 
 @media all and (max-width:768px) {
